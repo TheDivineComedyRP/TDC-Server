@@ -1,0 +1,13 @@
+{
+  "name": "tdc-server",
+  "version": "0.1.0",
+  "description": "The Divine Comedy — SkyMP gamemode (server-side)",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^5.4.0"
+  },
+  "license": "MIT"
+}
