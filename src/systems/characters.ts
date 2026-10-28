@@ -71,10 +71,10 @@ export function deleteCharacter(actorId: FormId): void {
  * @param actorId the formId of the character to select. This character will be enabled and associated with the user.
  * @param profileId the profileId of the user selecting the character. This is used to disable other characters associated with the profile.
  */
-export function selectCharacter(userId: number, actorId: number, profileId: number) {
-  const chars = listCharacters(profileId);
+export function selectCharacter(userId: number, actorId: FormId, profileId: number) {
+  const actors = listCharacters(profileId);
 
-  for (const c of chars) {
+  for (const c of actors) {
     if (c !== actorId) {
       mp.setEnabled(c, false);
     }
@@ -97,11 +97,11 @@ export function selectCharacter(userId: number, actorId: number, profileId: numb
  */
 export function switchToNextCharacter(userId: number, currentActorId: FormId): void {
   const profileId = mp.get(currentActorId, "profileId") as number;
-  const chars = listCharacters(profileId);
+  const actors = listCharacters(profileId);
 
-  if (chars.length < 2) return;
+  if (actors.length < 2) return;
 
-  const actual = chars.indexOf(currentActorId);
-  const next = (actual + 1) % chars.length;
-  selectCharacter(userId, chars[next], profileId);
+  const actual = actors.indexOf(currentActorId);
+  const next = (actual + 1) % actors.length;
+  selectCharacter(userId, actors[next], profileId);
 }
