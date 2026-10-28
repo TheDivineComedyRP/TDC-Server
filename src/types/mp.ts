@@ -25,7 +25,7 @@ export interface Mp {
   destroyActor(actorId: FormId): void;
   setUserActor(userId: number, actorId: FormId): void;
   getUserActor(userId: number): FormId;
-  getUserByActor(actorId: number): number;
+  getUserByActor(actorId: FormId): number;
   getActorsByProfileId(profileId: number): FormId[];
   getActorPos(actorId: FormId): Pos;
   getActorName(actorId: FormId): string;
